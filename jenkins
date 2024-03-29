@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Hello') {
             steps {
@@ -19,7 +19,13 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Production'
+                // Récupérer les dernières modifications depuis GitHub
+                git branch: 'main', url: 'https://github.com/Youssefha01/jenkinscicd'
+                
+                
+                
+                // Démarrer un serveur web local pour déployer le fichier HTML
+                sh 'cd C:\Users\User\Desktop\Nouveau dossier && python3 -m http.server 8000 &'
             }
         }
     }
