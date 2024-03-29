@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    stages {
+   stages {
         stage('Hello') {
             steps {
                 echo 'Hello World'
@@ -9,12 +9,17 @@ pipeline {
         }
         stage('BUILD') {
             steps {
-                echo 'DEV'
+                // Exécutez votre processus de construction sur le fichier HTML ici
+                // Par exemple, vous pouvez utiliser des outils comme npm, gulp ou webpack pour traiter votre fichier HTML
+                sh 'npm install' // Installez les dépendances du projet s'il y en a
+                sh 'npm run build' // Exécutez la construction de votre projet
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing'
+                // Exécutez vos tests sur le fichier HTML ici
+                // Vous pouvez utiliser des outils comme Jest, Mocha ou Selenium pour exécuter des tests sur votre fichier HTML
+                sh 'npm test' // Exemple de commande de test avec npm
             }
         }
         stage('Deploy') {
