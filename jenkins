@@ -1,32 +1,25 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Checkout') {
+        stage('Hello') {
             steps {
-                // Récupérer le code source depuis GitHub
-                git 'https://github.com/Youssefha01/jenkinscicd.git'
+                echo 'Hello World'
             }
         }
-        stage('Build') {
+        stage('BUILD') {
             steps {
-                // Étape de construction - peut inclure la compilation, la génération d'artefacts, etc.
-                // Dans ce cas, nous n'avons pas besoin de construire quoi que ce soit pour un fichier HTML, donc cette étape est vide
+                echo 'DEV'
             }
         }
         stage('Test') {
             steps {
-                // Étape de test - peut inclure l'exécution de tests unitaires, d'intégration, etc.
-                // Pour un fichier HTML, vous pouvez éventuellement effectuer des tests de validation, mais pour cet exemple, cette étape est vide
+                echo 'Testing'
             }
         }
         stage('Deploy') {
             steps {
-                // Étape de déploiement - déploie le fichier HTML sur GitHub Pages
-                sh 'git checkout -b gh-pages' // Crée une nouvelle branche gh-pages si elle n'existe pas
-                sh 'git add .' // Ajoute tous les fichiers à l'index
-                sh 'git commit -m "Deploy to GitHub Pages"' // Commit les changements
-                sh 'git push origin gh-pages' // Pousse les changements vers la branche gh-pages
+                echo 'Production'
             }
         }
     }
