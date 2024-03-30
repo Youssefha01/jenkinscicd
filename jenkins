@@ -14,7 +14,7 @@ pipeline {
                 bat 'mkdir output'
                 
                 // Copie le fichier HTML vers le répertoire de sortie
-                bat 'copy index.html output/
+                bat 'copy index.html output/'
             }
         }
         stage('Test') {
