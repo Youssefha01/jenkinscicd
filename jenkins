@@ -10,6 +10,11 @@ pipeline {
         stage('BUILD') {
             steps {
                 echo 'DEV'
+                // Crée un répertoire de sortie nommé 'output' s'il n'existe pas déjà
+                bat 'mkdir output'
+                
+                // Copie le fichier HTML vers le répertoire de sortie
+                bat 'copy index.html output/
             }
         }
         stage('Test') {
