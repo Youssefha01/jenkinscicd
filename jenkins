@@ -19,12 +19,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script {
-                    // Étape de construction de l'image Docker
-                    docker.build('mon_application', '.').push()
-                    // Étape de déploiement du conteneur Docker
-                    docker.image('mon_application').run('-p 8080:80')
-                }
+                echo 'production'
             }
         }
     }
